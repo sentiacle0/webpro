@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagle</title>
+    <script>
+        function calculate_area(){
+            var base = parseInt(document.getElementById("base").value);
+            var height = parseInt(document.getElementById("height").value);
+            var area = 0.5 * base * height;
+            document.getElementById('result').innerText = area;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <form>
+            <label>Enter base</label>
+            <input type="number" id="base">
+            <br>
+            <label>Enter height</label>
+            <input type="number" id="height">
+            <br>
+
+            <button type="button" onclick="calculate_area()">Calculate Area</button>
+            <br>
+
+            <h1 id="result"></h1>
+        </form>
+    </center>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse number</title>
+    <script>
+        function reverse(){
+            var numb = parseInt(document.getElementById("numb").value);
+            
+            var rev = numb.toString().split('').reverse().join('');
+            document.getElementById('result').innerText = rev;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <form>
+            <label>Enter number</label>
+            <input type="number" id="numb">
+            <br>
+
+            <button type="button" onclick="reverse()">Reverse number</button>
+            <br>
+
+            <h1 id="result"></h1>
+        </form>
+    </center>
+</body>
+</html>

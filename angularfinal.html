@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html>
+<html lang="en" ng-app="facebook">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>likes dislikes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="posts">
+        <label>Likes: {{likes}}</label>
+        <label>Dislikes: {{dislikes}}</label>
+        <button ng-click="likesadd()">Like</button>
+        <button ng-click="dislikesadd()">Dislike</button>
+
+    </div>
+
+    <script>
+        var app = angular.module('facebook', []);
+        app.controller('posts', function($scope){
+            $scope.likes=0;
+            $scope.dislikes=0;
+            $scope.likesadd = function(){
+                $scope.likes+=1
+            };
+            $scope.dislikesadd = function(){
+                $scope.dislikes+=1
+            };
+        });
+    </script>
+    
+</body>
+</html> -->

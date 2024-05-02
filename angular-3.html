@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingCart">
+
+<head>
+    <title>Shopping Cart Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="CartController" ng-init="initCart()">
+    <h2>Shopping Cart</h2>
+    <div ng-show="cart.length === 0">
+        Your cart is empty.
+    </div>
+    <div ng-hide="cart.length === 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in cart">
+                    <td>{{ item.name }}</td>
+
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <input type="number" ng-model="item.quantity" ng-change="updateTotal(item)">
+                    </td>
+                    <td>{{ item.total }}</td>
+                    <td>
+                        <button ng-click="removeFromCart($index)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Total: {{ cartTotal }}</h3>
+        <button ng-click="checkout()" ng-disabled="cart.length === 0">Checkout</button>
+    </div>
+    <h2>Add Items</h2>
+    <div>
+        <label>Name:</label>
+        <input type="text" ng-model="newItem.name">
+        <label>Price:</label>
+        <input type="number" ng-model="newItem.price">
+        <button ng-click="addItem()">Add Item</button>
+    </div>
+    <script>
+        var app = angular.module('ShoppingCart', []);
+        app.controller('CartController', function ($scope) {
+            $scope.cart = [];
+            $scope.cartTotal = 0;
+            $scope.newItem = {};
+            $scope.initCart = function () {
+                // Initialize cart with some items
+                $scope.cart.push({
+                    name: 'Product 1',
+                    price: 10,
+                    quantity: 1,
+                    total: 10
+                });
+                $scope.cart.push({
+                    name: 'Product 2',
+                    price: 20,
+                    quantity: 1,
+                    total: 20
+                });
+                $scope.updateCartTotal();
+            };
+
+            $scope.updateTotal = function (item) {
+                item.total = item.price * item.quantity;
+                $scope.updateCartTotal();
+            };
+            $scope.updateCartTotal = function () {
+                $scope.cartTotal = $scope.cart.reduce(function (total, item) {
+                    return total + item.total;
+                }, 0);
+            };
+            $scope.removeFromCart = function (index) {
+                $scope.cart.splice(index, 1);
+                $scope.updateCartTotal();
+            };
+            $scope.checkout = function () {
+                // Perform checkout logic
+                alert('Checkout successful!');
+                $scope.cart = [];
+                $scope.cartTotal = 0;
+            };
+            $scope.addItem = function () {
+                if ($scope.newItem.name && $scope.newItem.price) {
+                    $scope.cart.push({
+                        name: $scope.newItem.name,
+                        price: $scope.newItem.price,
+                        quantity: 1,
+                        total: $scope.newItem.price
+                    });
+                    $scope.newItem = {}; // Clear newItem object
+                    $scope.updateCartTotal();
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

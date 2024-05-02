@@ -1,0 +1,64 @@
+<!-- <!DOCTYPE html>
+<html ng-app="LikeDislike">
+
+<head>
+    <title>Like Dislike Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="LikeDislikeController">
+    <h2>Like/Dislike Counter</h2>
+    <p>Likes: {{ likes }}</p>
+    <p>Dislikes: {{ dislikes }}</p>
+    <button ng-click="incrementLikes()">Like</button>
+    <button ng-click="incrementDislikes()">Dislike</button>
+    <script>
+        var app = angular.module('LikeDislike', []);
+        app.controller('LikeDislikeController', function ($scope) {
+            $scope.likes = 0;
+            $scope.dislikes = 0;
+            $scope.incrementLikes = function () {
+                $scope.likes++;
+            };
+            $scope.incrementDislikes = function () {
+                $scope.dislikes++;
+            };
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="facebook">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller = "likesdisklikes">
+        <p>Likes: {{likes}}</p>
+        <p>Dislikes: {{dislikes}}</p>
+        <button ng-click="incrementLikes()">Like</button>
+        <button ng-click="incrementDislikes()">Dislike</button>
+    </div>
+
+    <script>
+        var app = angular.module('facebook', []);
+        app.controller('likesdisklikes', function($scope){
+            $scope.likes = 0;
+            $scope.dislikes = 0;
+            $scope.incrementLikes = function() {
+                $scope.likes += 1;
+            };
+            $scope.incrementDislikes = function() {
+                $scope.dislikes += 1;
+            };
+
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Triangle</title>
+    <script>
+        function Area() {
+            var side1 = 5;
+            var side2 = 6;
+            var side3 = 7;
+            var semiPerimeter = (side1 + side2 + side3) / 2;
+            var area = Math.sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3));
+            document.getElementById("result").innerHTML = "The area of the triangle is: " + area.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Triangle Area</h1>
+    <button onclick="Area()" style="padding: 10px;">Calculate Area</button>
+    <br>
+    <b id="result"></b>
+</body>
+
+</html>
